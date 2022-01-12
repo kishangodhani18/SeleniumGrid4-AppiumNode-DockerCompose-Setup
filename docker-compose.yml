@@ -1,0 +1,33 @@
+version : '3'
+services:
+     
+  selenium-hub:
+    build:
+        context : ./HubDocker
+        dockerfile : Dockerfile
+    environment :
+             - SE_SESSION_REQUEST_TIMEOUT=${SE_SESSION_REQUEST_TIMEOUT}
+             - SE_SESSION_RETRY_INTERVAL=${SE_SESSION_RETRY_INTERVAL}
+             - SE_RELAX_CHECKS=${SE_RELAX_CHECKS}
+             - SE_USERNAME=${SE_USERNAME}
+             - SE_PASSWORD=${SE_PASSWORD}
+             - SE_PREGISTRATIONKEY=${SE_PREGISTRATIONKEY}
+   
+    ports:
+      - "4444:4444"
+      - "4442:4442"
+      - "4443:4443"
+       
+  selenium-node:
+    build:
+        context : ./NodeDocker
+        dockerfile : Dockerfile
+    environment :
+             - SE_EVENT_BUS_HOST=${SE_EVENT_BUS_HOST}
+             - SE_EVENT_HOST=${SE_EVENT_HOST}
+             - SE_EVENT_BUS_PUBLISH_PORT=${SE_EVENT_BUS_PUBLISH_PORT}
+             - SE_EVENT_BUS_SUBSCRIBE_PORT=${SE_EVENT_BUS_SUBSCRIBE_PORT}
+             - NODE_LOG_PATH=${NODE_LOG_PATH}
+             - SE_NODE_SESSION_TIMEOUT=${SE_NODE_SESSION_TIMEOUT} 
+             - SE_PREGISTRATIONKEY=${SE_PREGISTRATIONKEY}
+             

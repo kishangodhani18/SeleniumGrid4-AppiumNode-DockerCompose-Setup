@@ -2,11 +2,11 @@
 detect-drivers = false
 
 [relay]
-url = "http://10.2.0.130:4723/wd/hub"
+url = "http://<public_ip_address>:4723/wd/hub"
 status-endpoint = "/status"
 
 configs = [
-"1",'{"browserName":"chrome", "platformName": "Android", "platformVersion":"11", "deviceName": "3201cff54d0e661b", "udid":"3201cff54d0e661b"}',
-"1",'{"browserName":"chrome", "platformName": "iOS", "platformVersion":"13.2.2", "deviceName": "iPhone (13.2.2)","udid":"e3a2211901a618a832d92b5cecec27ca049f0a0d"}'
+"1",'{"browserName":"chrome", "platformName": "Android", "platformVersion":"<version>", "deviceName": "<name>", "udid":"<udid>"}',
+"1",'{"browserName":"chrome", "platformName": "iOS", "platformVersion":"<version>", "deviceName": "<name>","udid":"<udid>"}'
 ]
 
